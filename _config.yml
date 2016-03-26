@@ -13,17 +13,17 @@ baseurl: ""
 
 
 
-title: "RainyAlley"
-email: "dubuyuye@yeah.net"
-description: "Developer"
-github_username:  "dubuyuye"
+title: "soken"
+email: "terrylog_1986@126.com"
+description: "开发者"
+github_username:  "soken1986"
 swiftype_searchId: "ncwR9a8S9CTx2q9SgsJm"
-disqus_shortname: "rainyalley"
+disqus_shortname: "soken1986"
 
 
 
-url: "http://blog.rainyalley.com"
-imgrepo: "http://blog.rainyalley.com/static/img"
+url: "http://soken1986.github.io"
+imgrepo: "http://soken1986.github.io/static/img"
 
 
 #url: "http://127.0.0.1:4000"
