@@ -1,0 +1,283 @@
+--- 
+layout: default 
+title: Music 
+permalink: /Music/ 
+icon: octicon-repo 
+isNavItem: true 
+---
+<link rel="stylesheet" type="text/css" href="{{ '/static/js/music/css/tplayer.css' | prepend: site.baseurl | prepend: site.url}}" />
+<link rel="stylesheet" type="text/css"
+	href="{{ '/static/js/music/FontAwesome4.1/css/font-awesome.min.css' | prepend: site.baseurl | prepend: site.url}}" />
+<script type="text/javascript" src="{{'/static/js/music/js/jquery-ui.js' | prepend:site.baseurl | prepend: site.url }}"></script>
+<script type="text/javascript" src="{{'/static/js/music/js/tPlayer.js' | prepend:site.baseurl | prepend: site.url }}"></script>
+<style>
+.form-wrapper {
+	width: 450px;
+	padding: 8px;
+	margin: 0px auto;
+	overflow: hidden;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #dedede #bababa #aaa #bababa;
+	-moz-box-shadow: 0 3px 3px rgba(255, 255, 255, .1), 0 3px 0 #bbb, 0 4px
+		0 #aaa, 0 5px 5px #444;
+	-webkit-box-shadow: 0 3px 3px rgba(255, 255, 255, .1), 0 3px 0 #bbb, 0
+		4px 0 #aaa, 0 5px 5px #444;
+	box-shadow: 0 3px 3px rgba(255, 255, 255, .1), 0 3px 0 #bbb, 0 4px 0
+		#aaa, 0 5px 5px #444;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #f6f6f6;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6),
+		to(#eae8e8));
+	background-image: -webkit-linear-gradient(top, #f6f6f6, #eae8e8);
+	background-image: -moz-linear-gradient(top, #f6f6f6, #eae8e8);
+	background-image: -ms-linear-gradient(top, #f6f6f6, #eae8e8);
+	background-image: -o-linear-gradient(top, #f6f6f6, #eae8e8);
+	background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+}
+
+.form-wrapper #search {
+	width: 330px;
+	height: 42px;
+	padding: 10px 5px;
+	float: left;
+	font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
+	border: 1px solid #ccc;
+	-moz-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
+	-webkit-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
+	box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.form-wrapper #search:focus {
+	outline: 0;
+	border-color: #aaa;
+	-moz-box-shadow: 0 1px 1px #bbb inset;
+	-webkit-box-shadow: 0 1px 1px #bbb inset;
+	box-shadow: 0 1px 1px #bbb inset;
+}
+
+.form-wrapper #search::-webkit-input-placeholder {
+	color: #999;
+	font-weight: normal;
+}
+
+.form-wrapper #search:-moz-placeholder {
+	color: #999;
+	font-weight: normal;
+}
+
+.form-wrapper #search:-ms-input-placeholder {
+	color: #999;
+	font-weight: normal;
+}
+
+.form-wrapper #submit {
+	float: right;
+	border: 1px solid #00748f;
+	height: 42px;
+	width: 100px;
+	padding: 0;
+	cursor: pointer;
+	font: bold 15px Arial, Helvetica;
+	color: #fafafa;
+	text-transform: uppercase;
+	background-color: #0483a0;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#31b2c3),
+		to(#0483a0));
+	background-image: -webkit-linear-gradient(top, #31b2c3, #0483a0);
+	background-image: -moz-linear-gradient(top, #31b2c3, #0483a0);
+	background-image: -ms-linear-gradient(top, #31b2c3, #0483a0);
+	background-image: -o-linear-gradient(top, #31b2c3, #0483a0);
+	background-image: linear-gradient(top, #31b2c3, #0483a0);
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
+}
+
+.form-wrapper #submit:hover, .form-wrapper #submit:focus {
+	background-color: #31b2c3;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#0483a0),
+		to(#31b2c3));
+	background-image: -webkit-linear-gradient(top, #0483a0, #31b2c3);
+	background-image: -moz-linear-gradient(top, #0483a0, #31b2c3);
+	background-image: -ms-linear-gradient(top, #0483a0, #31b2c3);
+	background-image: -o-linear-gradient(top, #0483a0, #31b2c3);
+	background-image: linear-gradient(top, #0483a0, #31b2c3);
+}
+
+.form-wrapper #submit:active {
+	outline: 0;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+}
+
+.form-wrapper #submit::-moz-focus-inner {
+	border: 0;
+}
+</style>
+<div class="row index">
+	<div class="col-sm-10 col-sm-offset-1 col-lg-9 col-lg-offset-1_5">
+		<form class="form-wrapper" id="music_form">
+			<input type="text" id="search" placeholder="关键字：歌手，歌名" required="">
+			<input type="button" value="go" id="submit">
+		</form>
+		<!--效果html开始-->
+		<div class="myplayer">
+			<div id="t_wrapper">
+				<div id="t_cover">
+					<img src="/static/js/music/img/logo.png">
+				</div>
+				<div id="t_top">
+					<div id="t_title_info">
+						<span class="artist"></span> <span class="title"></span>
+					</div>
+				</div>
+				<div id="t_middle">
+					<div id="play"></div>
+					<div id="pause" class="hidden"></div>
+					<div class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="t_progress" style="margin-top: 0.3em;">
+						<div id="trackInfo">
+							<div id="error"></div>
+							<div id="current">0:00</div>
+							<div id="duration">0:00</div>
+						</div>
+						<div style="width: 0%;" class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min"></div>
+						<span style="left: 0%;" class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+					</div>
+					<span id="prev"></span> <span id="next"></span>
+				</div>
+				<div id="t_bottom">
+					<div id="range">
+						<div id="download"></div>
+						<div id="val"></div>
+						<div id="vol"></div>
+						<div id="rangeVal"></div>
+					</div>
+					<div id="t_pls_show" class="noselectpls"></div>
+				</div>
+			</div>
+			<div id="playlist">
+				<ul>
+				</ul>
+			</div>
+		</div>
+		<!--效果html结束-->
+	</div>
+</div>
+<script type="text/javascript" src="" id="getAspx">
+</script>
+<script>
+$(function() {
+	$('#submit').on('click',searchMusic);
+	$(document).keydown(function(e) {
+		if(e.keyCode == 13) {
+			searchMusic();
+		}
+	});
+			
+	function searchMusic() {
+		var search = $('#search').val();
+		if(search && search == "") {
+			return;
+		}
+		//var url = "http://i.y.qq.com/s.plcloud/fcgi-bin/smartbox_new.fcg?utf8=1&is_xml=0&g_tk=1963758629&hostUin=0&format=jsonp&inCharset=GB2312&outCharset=utf-8&notice=0&platform=yqq&jsonpCallback=MusicJsonCallBack&needNewCode=0"+"&key="+encodeURIComponent(search);
+		var url = "http://soso.music.qq.com/fcgi-bin/search_cp?aggr=1&catZhida=1&lossless=0&sem=1&n=20&t=0&p=1&searchid=187409682499018645&remoteplace=sizer.newclient.song&g_tk=938407465&loginUin=0&hostUin=0&format=jsonp&inCharset=GB2312&outCharset=gb2312&notice=0&platform=yqq&needNewCode=0&cr=1&sem=0&w="+encodeURIComponent(search);
+		//var url = "http://soso.music.qq.com/fcgi-bin/client_search_cp?jsonCallback=callback&format=json&t=0&loginUin=0&inCharset=GB2312&outCharset=utf-8&qqmusic_guid=2B057761A42A542AE9571AA4972ECCFA&qqmusic_ver=1252&catZhida=0&p=1&n=28&searchid=20600507070929568&flag_qc=0&remoteplace=sizer.newclient.song&lossless=0&aggr=1&cr=1&sem=0"+"&w="+encodeURIComponent(search);
+		$.ajax({
+			async:false,
+			url: url,
+			type: "GET",
+			dataType: 'jsonp',
+			jsonp: 'jsonpCallback',
+			timeout: 5000,
+			success : function(response) {
+				MusicJsonCallBack(response);
+			}
+		})
+	}
+	
+	function MusicJsonCallBack(content) {
+		console.log(content)
+		if(content.data.song && content.data.song.list.length > 0) {
+			$('#playlist ul li').remove();
+			var list = content.data.song.list;
+			for(var i = 0,j = list.length ; i < j ; i++) {
+				if(list[i].albumid > 0) {
+					var id = 30000000;
+					var m_src = "http://tsmusic128.tc.qq.com/"+(id+parseInt(list[i].songid))+".mp3";
+					var title = list[i].songname + " --- " + list[i].singer[0].name;
+					var album = list[i].albummid;
+					var dir_one = album.substring(album.length-2,album.length-1);
+					var dir_two = album.substring(album.length-1,album.length);
+					var cover = "http://i.gtimg.cn/music/photo/mid_album_300/"+dir_one+"/"+dir_two+"/"+album+".jpg";
+					var content = '\
+					<li t_cover="'+cover+'" t_artist="'+list[i].singer[0].name+'" t_name="'+list[i].songname+'"> \
+						<a href="#">'+title+'</a> \
+						<audio preload="none"> \
+							<source src="'+m_src+'" type="audio/ogg"> \
+							<source src="http://www.internetke.com" type="audio/ogg; codecs=vorbis"> \
+						</audio> \
+					</li>';
+					$('#playlist ul').append(content);
+				}
+			}
+			
+			$('audio').on("timeupdate", function() {
+				mus[0].volume = val / 100;
+				d = this.duration;
+				c = this.currentTime;
+				curM = Math.floor(c / 60);
+				curS = Math.round(c - curM * 60);
+				$('#current').text(curM + ':' + curS);
+				$('#t_progress').slider({
+					max : d,
+					min : 0,
+					value : c
+				});
+			});
+
+			$('audio')
+					.on(
+							"playing",
+							function() {
+								dur = this.duration;
+								durM = Math.floor(dur / 60)
+										+ ':'
+										+ Math.round((dur - Math
+												.floor(dur / 60)) / 10);
+								$('#duration').text(durM);
+								$(this).parent("li").addClass('active');
+								$('#t_title_info').animate({
+									top : "0em",
+									opacity : "show"
+								}, 500);
+							});
+
+			$("audio").on("ended",function() {
+				mus = $(this).parent('li').next('li').first();
+				mus = mus.children('audio');
+				$(this).parent("li").addClass('active');
+				var next = $('li.active').next();
+				$('li').removeClass('active');
+				if (mus[0]) {
+					initAudio(next);
+					mus[0].play();
+				} else {
+					$('#error').text('最后一首歌！');
+					$('#t_cover').html('<img src="/static/js/music/img/logo.png">');
+				}
+			});
+		}
+	}
+});
+</script>
