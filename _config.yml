@@ -22,8 +22,8 @@ disqus_shortname: "soken"
 
 
 gems: [jekyll-paginate]
-url: "http://soken1986.github.io"
-imgrepo: "http://soken1986.github.io/static/img"
+url: "https://soken-su.github.io"
+imgrepo: "https://soken-su.github.io/static/img"
 
 
 #url: "http://127.0.0.1:4000"
